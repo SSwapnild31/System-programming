@@ -1,4 +1,4 @@
-- 👋 Hi, I’m @SSwapnild31
+- 👋 Hi, I’m Swapnil 
 - 👀 I love to do coding
 - 🌱 Currently I’m learning C++ and linux
 - ✨ I have knowledge about Java , MySQL and AWS also
