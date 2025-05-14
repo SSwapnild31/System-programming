@@ -1,6 +1,6 @@
 - 👋 Hi, I’m @SSwapnild31
 - 👀 I love to do coding
-- 🌱 I’m currently learning C++ and linux
+- 🌱 Currently I’m learning C++ and linux
 - ✨ I have knowledge about Java , MySQL and AWS also
 
 <!---
