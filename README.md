@@ -1,6 +1,6 @@
 - 👋 Hi, I’m Swapnil 
 - 👀 coding
-- 🌱 Currently learning C++ and linux
+- 🌱 Currently learning C++ DS and linux
 - ✨ also have knowledge about Java , MySQL and AWS
 <!---
 SSwapnild31/SSwapnild31 is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
