@@ -8,7 +8,7 @@ void main()
 	int i=10, j=20, r;
 
 	r = callback(i,j,sum);
-	printf("k : %d\n",r);
+	printf("r : %d\n",r);
 }
 
 int callback(int m,int n, int (*p)(int,int))
