@@ -1,3 +1,5 @@
+//TCP client side program
+
 #include"header.h"
 #define size 100
 

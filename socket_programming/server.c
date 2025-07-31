@@ -1,9 +1,25 @@
+//TCP server side program
+
 #include"header.h"
+#define size 100
+
+void convert(char *p)
+{
+	while(*p)
+	{
+		if(*p>='a' && *p<='z')
+			*p = *p - 32;
+		else if(*p>='A' && *p<='Z')
+			*p = *p + 32;
+		p++;
+	}
+}
 
 int main(int argc,char **argv)
 {
 	int fd, len, nfd;
-	
+	char s[size];
+
 	fd = socket(AF_INET,SOCK_STREAM,0);
 	
 	if(fd<0)
@@ -37,15 +53,42 @@ int main(int argc,char **argv)
 	}
 	perror("listen");
 	
-	printf("\nwaiting for client\n");
-	nfd = accept(fd,(struct sockaddr*)&client_id,&len);
-
-	if(fd<0)
+	while(1)
 	{
-		perror("accept");
-		return 0;
+		printf("\nwaiting for client\n");
+		nfd = accept(fd,(struct sockaddr*)&client_id,&len);
+
+		if(fd<0)
+		{
+			perror("accept");
+			return 0;
+		}
+		
+		printf("\n---------------------------\n");
+		
+		if(fork()==0)
+		{
+			printf("\033[32mclient connected\nip address : %s\033[0m\n",inet_ntoa(client_id.sin_addr));
+
+			printf("\n---------------------------\n");
+
+			while(1)
+			{
+				read(nfd,s,sizeof(s));
+				printf("client msg	: %s\n",s);
+				if(strcmp(s,"bye")==0)
+					break;
+				convert(s);
+				//printf("send replay	: ");
+				//scanf(" %[^\n]",s);
+				write(nfd,s,strlen(s)+1);
+			}	
+			printf("\n---------------------------\n");
+		}
 	}
-	perror("accept");
+
+	close(nfd);
+	close(fd);
 	
 	return 0;
 }
