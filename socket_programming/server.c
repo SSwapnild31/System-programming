@@ -17,6 +17,12 @@ void convert(char *p)
 
 int main(int argc,char **argv)
 {
+	if(argc!=3)
+	{
+		printf("usage : ./server portno ipaddr\n");
+		return 0;
+	}
+
 	int fd, len, nfd;
 	char s[size];
 
