@@ -5,6 +5,12 @@
 
 int main(int argc,char **argv)
 {
+	if(argc!=3)
+	{
+		printf("usage : ./server portno ipaddr\n");
+		return 0;
+	}
+
 	int fd, len;
 	
 	fd = socket(AF_INET,SOCK_STREAM,0);
