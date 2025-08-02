@@ -14,11 +14,11 @@ int main()
 	printf("Before..\n");
 	
 	int fd = open("f1",O_WRONLY);
-	printf("after..\n");
+	//printf("after..\n");
 	
 	char s[20];
 	printf("Enter the data : ");
-	scanf("%s",s);
+	scanf("%[^\n]",s);
 	write(fd,s,strlen(s)+1);
 	
 	return 0;
