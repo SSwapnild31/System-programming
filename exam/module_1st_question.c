@@ -1,3 +1,13 @@
+/*  Parent process:
+        create two childs :
+            Child 1: Reads the contents of a directory and writes the names into a file called "data" after every1 second.
+            Child 2: Waits for a signal (SIGUSR1) and writes a string to the same file upon receiving the signal via a signal handler.
+    Parent:
+        Waits for Child 1 to finish.
+        use kill to sends SIGUSR1 to Child 2.
+*/
+
+
 #include<stdio.h>
 #include<unistd.h>
 #include<stdlib.h>
@@ -38,10 +48,11 @@ int main(int argc,char **argv)
 		{
 			write(fd,v->d_name,strlen(v->d_name));
 			write(fd,"\n",1);
+			sleep(1);
 		}
 		close(fd);
 		closedir(dp);
-		printf("pid : %d done\n",getpid());
+							//printf("pid : %d done\n",getpid());
 	}
 	else
 	{
@@ -50,10 +61,10 @@ int main(int argc,char **argv)
 		if(r2==0)
 		{
 			signal(SIGUSR1,my_isr);
-			printf("waiting for signal\n");
+							//printf("waiting for signal\n");
 			pause();
-			printf("signal received\n");
-			printf("pid : %d done\n",getpid());
+							//printf("signal received\n");
+							//printf("pid : %d done\n",getpid());
 		}
 		else
 		{
@@ -61,7 +72,7 @@ int main(int argc,char **argv)
 			waitpid(r,0,0);
 			kill(r2,SIGUSR1);
 			waitpid(r2,0,0);
-			printf("all done\n");
+							//printf("all done\n");
 		}
 	}
 	
