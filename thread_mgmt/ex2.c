@@ -7,7 +7,7 @@ void *trd1(void *p)
 		printf("In thread %s\n",(char*)p);
 } 
 
-int main()
+void main()
 {	
 	pthread_t t1;
 	
@@ -15,5 +15,4 @@ int main()
 	
 	pthread_exit(0);
 
-	return 0;
 }
