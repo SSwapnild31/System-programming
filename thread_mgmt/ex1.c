@@ -7,7 +7,7 @@ void *trd1(void *p)
 		printf("pid : %d tid : %d\n",getpid(),pthread_self());
 } 
 
-int main()
+void main()
 {	
 	pthread_t t1;
 	
@@ -16,5 +16,4 @@ int main()
 	while(1)	
 		printf("pid : %d tid : %d\n",getpid(),pthread_self());
 	
-	return 0;
 }
