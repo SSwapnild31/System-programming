@@ -16,7 +16,7 @@ void *newt(void *p)
 		printf("Number is not prime\n");
 }
 
-int main()
+void main()
 {
 	int num;
 	printf("Enter number : ");
@@ -27,5 +27,4 @@ int main()
 	
 	pthread_exit(0);
 	
-	return 0;
 }
