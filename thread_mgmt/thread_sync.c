@@ -12,7 +12,6 @@ void *thread1(void *arg){
 		pthread_mutex_lock(&m1);
 		printf("%c",ch++);
 		fflush(stdout);
-		sleep(1);
 		pthread_mutex_unlock(&m1);
 	}
 	pthread_exit(0);
@@ -25,7 +24,6 @@ void *thread2(void *arg){
 		pthread_mutex_lock(&m1);
 		printf("%c",ch++);
 		fflush(stdout);
-		sleep(1);
 		pthread_mutex_unlock(&m1);
 	}
 	pthread_exit(0);
@@ -42,7 +40,10 @@ int main()
 	pthread_create(&t1, NULL, thread1, NULL);
 	pthread_create(&t2, NULL, thread2, NULL);
 	
-	pthread_exit(0);
+	pthread_join(t1, NULL);
+	pthread_join(t2, NULL);
+
+	pthread_mutex_destroy(&m1);
 	
 	return 0;
 }
