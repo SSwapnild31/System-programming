@@ -1,8 +1,8 @@
-- 👋 Hi, I’m Swapnil 
-- 👀 coding
-- 🌱 Currently learning C++ DS and linux
-- ✨ also have knowledge about Java , MySQL and AWS
-<!---
-SSwapnild31/SSwapnild31 is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
-You can click the Preview link to take a look at your changes.
---->
+# System Programming in C
+---
+- Process and Process Management
+- Signal Handling
+- File and File Management
+- Inter Process Communication
+- Process Synchronization using Semaphore
+- Thread and Multi-threading using pthreads
